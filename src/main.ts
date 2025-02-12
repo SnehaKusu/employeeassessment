@@ -1,6 +1,17 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
-import { AppComponent } from './app/app.component';
+import { provideRouter, Routes } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
+import { EmployeeAssessmentComponent } from './app/employee-assessment/employee-assessment.component';
+import { AdminDashboardComponent } from './app/admin-dashboard/admin-dashboard.component';
 
-bootstrapApplication(AppComponent, appConfig)
-  .catch((err) => console.error(err));
+const routes: Routes = [
+  { path: '', component: EmployeeAssessmentComponent },  // ✅ Default Route
+  { path: 'admin', component: AdminDashboardComponent } // ✅ Admin Dashboard Route
+];
+
+bootstrapApplication(EmployeeAssessmentComponent, {
+  providers: [
+    provideRouter(routes),  // ✅ Provide Routing
+    provideHttpClient()     // ✅ Provide HttpClient for API Calls
+  ]
+}).catch(err => console.error(err));

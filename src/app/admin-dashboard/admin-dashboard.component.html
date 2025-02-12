@@ -1,0 +1,31 @@
+<h2 class="text-center">Admin Dashboard - Employee Submissions</h2>
+
+<!-- Error Message -->
+<div *ngIf="errorMessage" class="alert alert-danger">
+  {{ errorMessage }}
+</div>
+
+<!-- Data Table -->
+<table class="table table-striped mt-4" *ngIf="submissions.length > 0">
+  <thead>
+    <tr>
+      <th>Full Name</th>
+      <th>Email</th>
+      <th>Score</th>
+      <th>Category</th>
+      <th>Date Submitted</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let submission of submissions">
+      <td>{{ submission.fullName }}</td>
+      <td>{{ submission.email }}</td>
+      <td>{{ submission.score }}</td>
+      <td>{{ submission.category }}</td>
+      <td>{{ submission.date | date: 'short' }}</td> <!-- ✅ `date` pipe will now work -->
+    </tr>
+  </tbody>
+</table>
+
+<!-- No Data Message -->
+<p *ngIf="submissions.length === 0" class="text-center mt-4">No submissions found.</p>
