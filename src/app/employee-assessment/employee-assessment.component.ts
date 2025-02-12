@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
   selector: 'app-employee-assessment',
   standalone: true,
   templateUrl: './employee-assessment.component.html',
-  styleUrls: ['./employee-assessment.component.css'],
+  styleUrls: ['./employee-assessment.component.scss'],
   imports: [ReactiveFormsModule, CommonModule]
 })
 export class EmployeeAssessmentComponent {
